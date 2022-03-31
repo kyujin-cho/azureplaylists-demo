@@ -1,0 +1,13 @@
+version: "3"
+services:
+  redis:
+    image: redis:6.2
+    ports:
+      - 6379:6379
+  postgresql:
+    image: postgres:14.2
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=fastapi-admin
+      - POSTGRES_PASSWORD=postgres

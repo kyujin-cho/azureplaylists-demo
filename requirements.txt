@@ -1,0 +1,13 @@
+aioredis
+aiofiles
+asyncpg
+uvicorn
+fastapi
+starlette
+fastapi_admin
+tortoise-orm~=0.17.6
+python-dotenv
+pendulum
+python-multipart
+jinja2~=3.0.1
+bcrypt

@@ -1,5 +1,3 @@
 #! /bin/bash
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker pull redis:6.2
-docker pull postgres:14.2
+oryx build -p virtualenv_name=.venv --log-file /tmp/oryx-build.log --manifest-dir /tmp || echo 'Could not auto-build. Skipping.'
+DEBIAN_FRONTEND=noninteractive sudo apt install -y postgresql-client redis

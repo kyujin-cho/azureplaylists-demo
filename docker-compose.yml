@@ -2,12 +2,23 @@ version: "3"
 services:
   redis:
     image: redis:6.2
-    ports:
-      - 6379:6379
   postgresql:
     image: postgres:14.2
-    ports:
-      - 5432:5432
     environment:
       - POSTGRES_DB=fastapi-admin
       - POSTGRES_PASSWORD=postgres
+  demo:
+    image: mcr.microsoft.com/vscode/devcontainers/universal:1-linux
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - type: volume
+        source: codespaces-linux-var-lib-docker
+        target: /var/lib/docker
+    security_opt:
+      - label:seccomp:unconfined
+    privileged: true
+    init: true
+
+volumes:
+  codespaces-linux-var-lib-docker:
